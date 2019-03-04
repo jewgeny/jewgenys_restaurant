@@ -19,7 +19,7 @@ class SinglePizza extends Component{
       <div className="py-5 alert alert-secondary d-flex flex-column justify-content-between" role="alert">
 
             <span  style={{width: "30vw"}} className="mb-3 mx-auto d-flex justify-content-around align-items-center">
-                <button identdec={this.props.pizzaArray.id} onClick={this.props.pizzaArray.counter} className="btn btn-secondary mx-1">-</button>
+                <button identdec={this.props.pizzaArray.id} className="btn btn-secondary mx-1">-</button>
                 <p className="lead text-center my-1 sizeP">{this.props.pizzaArray.counter}</p>
                 <button identinc={this.props.pizzaArray.id} onClick={this.props.incCounter} className="btn btn-secondary">+</button>
                 <button onClick={this.props.setOrderButton} className="btn btn-success float-right">Bestätigen</button>
