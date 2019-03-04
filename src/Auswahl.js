@@ -15,17 +15,17 @@ class Auswahl extends Component{
         <>
                 <div className="card px-5 py-1 mx-2">
                    <h2 className="display-5 text-center">Pizzas</h2>
-                    <img src={pizza} className="card-img-top categoryImg" />
+                    <img src={pizza} className="card-img-top" />
                     <PizzaButton />
                 </div>
                 <div className="card px-5 py-1 mx-2">
                    <h2 className="display-5 text-center">Burgers</h2>
-                    <img src={burger} className="card-img-top categoryImg" />
+                    <img src={burger} className="card-img-top" />
                     <BurgerButton />
                 </div>
                 <div className="card px-5 py-1 mx-2">
                    <h2 className="display-5 text-center">Salads</h2>
-                   <img src={salad} className="card-img-top categoryImg" />
+                   <img src={salad} className="card-img-top" />
                     <SaladButton />
                 </div>
         </>
