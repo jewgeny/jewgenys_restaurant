@@ -1,0 +1,13 @@
+.hoverLink{
+  border: 1px solid transparent;
+
+}
+
+.hoverLink:hover{
+  border: 1px solid white;
+  transition: all 1s;
+}
+
+.textDecoration{
+  text-decoration: none !important;
+}

@@ -1,0 +1,20 @@
+.subImages{
+  width: 20vw !important
+}
+
+.imgOrder{
+  width: 20% !important;
+  height: 20% !important;
+}
+
+.sizeP{
+  font-size: 2vw !important;
+}
+
+.closeButton{
+  font-size: 3vw !important;
+  margin: 0 !important;
+  position: absolute;
+  top: -1vw;
+  cursor: pointer;
+}
