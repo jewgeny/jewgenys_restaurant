@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import "../css/productImages.css";
 import {NavLink} from "react-router-dom";
-import {orderBox, incCounter, decCounter, orderButton, continueShopping} from "../redux";
+import {orderBox, incCounterPizza, decCounterPizza, decCounter, orderButton, continueShopping, changeValuePizza} from "../redux";
 import {connect} from "react-redux";
 
 
@@ -18,11 +18,20 @@ class SinglePizza extends Component{
 
       <div className="py-5 alert alert-secondary d-flex flex-column justify-content-between" role="alert">
 
-            <span  style={{width: "30vw"}} className="mb-3 mx-auto d-flex justify-content-around align-items-center">
-                <button identdec={this.props.pizzaArray.id} className="btn btn-secondary mx-1">-</button>
-                <p className="lead text-center my-1 sizeP">{this.props.pizzaArray.counter}</p>
-                <button identinc={this.props.pizzaArray.id} onClick={this.props.incCounter} className="btn btn-secondary">+</button>
-                <button onClick={this.props.setOrderButton} className="btn btn-success float-right">Bestätigen</button>
+            <span  style={{width: "20vw"}} className="mb-3 mx-auto d-flex justify-content-around align-items-center">
+                <button ident={this.props.pizzaArray.id} onClick={this.props.decCounterPizza} className="btn btn-secondary mx-1">-</button>
+                <p className="lead my-auto py-auto">{this.props["countersPizza" + this.props.pizzaArray.id]}</p>
+                <button ident={this.props.pizzaArray.id} onClick={this.props.incCounterPizza} className="btn btn-secondary">+</button>
+                <button
+                        image={this.props.pizzaArray.img}
+                        pizza={this.props.pizzaArray.titel}
+                        price={this.props.pizzaArray.price}
+                        titel={this.props.pizzaArray.titel}
+                        ident={this.props.pizzaArray.id}
+                        onClick={this.props.setOrderButton}
+                        className="btn btn-success float-right">
+                        Bestätigen
+                </button>
             </span>
 
             <div className="d-flex flex-column justify-content-between">
@@ -56,16 +65,23 @@ const mapStateToProps = state => {
      infoBox: state.infoBox,
      orderIsZero: state.orderIsZero,
      pizzaStorage: state.pizzaStorage,
-     thxAlert: state.thxAlert
+     thxAlert: state.thxAlert,
+     countersPizza0: state.countersPizza[0],
+     countersPizza1: state.countersPizza[1],
+     countersPizza2: state.countersPizza[2],
+     countersPizza3: state.countersPizza[3],
+     countersPizza4: state.countersPizza[4],
+     countersPizza5: state.countersPizza[5],
   }
 }
 
 const mapStateToDispatch = dispatch => {
    return{enterBox: (index) => dispatch(orderBox(index)),
-          incCounter: (index) => dispatch(incCounter(index)),
-          decCounter: (index) => dispatch(decCounter()),
+          incCounterPizza: (ev) => dispatch(incCounterPizza(ev)),
+          decCounterPizza: (ev) => dispatch(decCounterPizza(ev)),
           setOrderButton: (index) => dispatch(orderButton(index)),
           continueShopping: () => dispatch(continueShopping()),
+          changeValuePizza: (ev) => dispatch(changeValuePizza(ev))
    }
 }
 

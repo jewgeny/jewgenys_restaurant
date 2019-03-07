@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import "../css/productImages.css";
 import {NavLink} from "react-router-dom";
-import {orderBox, incCounter, decCounter, orderButton, continueShopping} from "../redux";
+import {orderBox, orderButton, continueShopping} from "../redux";
 import {connect} from "react-redux";
 
 
@@ -21,8 +21,8 @@ class SingleBurger extends Component{
             <span  style={{width: "30vw"}} className="mb-3 mx-auto d-flex justify-content-around align-items-center">
                 <button identdec={this.props.burgerArray.id} onClick={this.props.decCounter} className="btn btn-secondary mx-1">-</button>
                 <p className="lead text-center my-1 sizeP">{this.props.burgerArray.counter}</p>
-                <button identinc={this.props.burgerArray.id} onClick={this.props.incCounter} className="btn btn-secondary">+</button>
-                <button onClick={this.props.setOrderButton} className="btn btn-success float-right">Bestätigen</button>
+                <button identinc={this.props.burgerArray.id}  className="btn btn-secondary">+</button>
+                <button className="btn btn-success float-right">Bestätigen</button>
             </span>
 
             <div className="d-flex flex-column justify-content-between">
@@ -63,8 +63,6 @@ const mapStateToProps = state => {
 
 const mapStateToDispatch = dispatch => {
    return{enterBox: (index) => dispatch(orderBox(index)),
-          incCounter: (index) => dispatch(incCounter(index)),
-          decCounter: (index) => dispatch(decCounter()),
           setOrderButton: (index) => dispatch(orderButton(index)),
           continueShopping: () => dispatch(continueShopping()),
    }
