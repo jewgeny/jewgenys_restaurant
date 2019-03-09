@@ -18,13 +18,13 @@ class SingleSalad extends Component{
 
         <div className="py-5 alert alert-secondary d-flex flex-column justify-content-between" role="alert">
 
-              <span  style={{width: ""}} className="mb-3 mx-auto d-flex justify-content-around align-items-center">
+              <div  style={{width: ""}} className="mb-3 mx-auto d-flex justify-content-around align-items-center">
 
-              <div className="infoBox input-group">
+              <div className="d-flex infoBox input-group">
                      <span className="input-group-btn">
                         <button ident={this.props.saladArray.id} onClick={this.props.decCounterSalat} className="btn btn-secondary" type="button">-</button>
                      </span>
-                     <span className="d-flex align-items-center bg-white px-5">{this.props["countersSalat" + this.props.saladArray.id]}</span>
+                     <span className="d-flex align-items-center bg-white px-3">{this.props["countersSalat" + this.props.saladArray.id]}</span>
                      <span className="input-group-btn">
                         <button ident={this.props.saladArray.id} onClick={this.props.incCounterSalat} className="btn btn-secondary" type="button">+</button>
                      </span>
@@ -41,7 +41,7 @@ class SingleSalad extends Component{
                     Bestätigen
                   </button>
 
-              </span>
+              </div>
 
 
               <div className="d-flex flex-column justify-content-between">

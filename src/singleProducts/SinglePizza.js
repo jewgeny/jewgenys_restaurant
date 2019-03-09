@@ -21,11 +21,11 @@ class SinglePizza extends Component{
 
             <span  style={{width: ""}} className="mb-3 mx-auto d-flex justify-content-around align-items-center">
 
-            <div className="infoBox input-group">
+            <div className="d-flex infoBox input-group">
                    <span className="input-group-btn">
                       <button ident={this.props.pizzaArray.id} onClick={this.props.decCounterPizza} className="btn btn-secondary" type="button">-</button>
                    </span>
-                   <span className="d-flex align-items-center bg-white px-5">{this.props["countersPizza" + this.props.pizzaArray.id]}</span>
+                   <span className="d-flex align-items-center bg-white px-2">{this.props["countersPizza" + this.props.pizzaArray.id]}</span>
                    <span className="input-group-btn">
                       <button ident={this.props.pizzaArray.id} onClick={this.props.incCounterPizza} className="btn btn-secondary" type="button">+</button>
                    </span>

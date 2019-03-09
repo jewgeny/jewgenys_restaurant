@@ -20,11 +20,11 @@ class SingleBurger extends Component{
 
               <span  style={{width: ""}} className="mb-3 mx-auto d-flex justify-content-around align-items-center">
 
-              <div className="infoBox input-group">
+              <div className="d-flex infoBox input-group">
                      <span className="input-group-btn">
                         <button ident={this.props.burgerArray.id} onClick={this.props.decCounterBurger} className="btn btn-secondary" type="button">-</button>
                      </span>
-                     <span className="d-flex align-items-center bg-white px-5">{this.props["countersBurger" + this.props.burgerArray.id]}</span>
+                     <span className="d-flex align-items-center bg-white px-2">{this.props["countersBurger" + this.props.burgerArray.id]}</span>
                      <span className="input-group-btn">
                         <button ident={this.props.burgerArray.id} onClick={this.props.incCounterBurger} className="btn btn-secondary" type="button">+</button>
                      </span>
