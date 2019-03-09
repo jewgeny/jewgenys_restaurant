@@ -1,0 +1,8 @@
+     if(pizza1 === state.basket[buttonIndex].pizza){
+       console.log("hallo");
+       console.log("was ist das?" + state.basket[buttonIndex].pizza);
+       delete tempOrders[tempOrders.indexOf(buttonIndex)];
+       copyOfStates.basket = tempOrders;
+     }
+
+     tempOrders.splice(state.basket[buttonIndex], 1);

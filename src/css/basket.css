@@ -1,10 +1,11 @@
 .counterBasket{
-  width: 2vw !important;
-  height: 2vw !important;
   background: green;
-  border-radius: 50%;
-  padding: .3vw;
+  border-radius: 0.8em;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.6em;
+  margin-right: 5px;
   text-align: center;
-  color: white;
-  padding: auto 0 !important;
+  width: 1.6em;
 }

@@ -1,0 +1,20 @@
+
+.dankeBox{
+  display: none;
+}
+
+.infoBox{
+  display: block;
+}
+
+.divBoxZero{
+  display: none;
+}
+
+.showBox{
+  display: block;
+}
+
+.showBoxDanke{
+  display: flex;
+}

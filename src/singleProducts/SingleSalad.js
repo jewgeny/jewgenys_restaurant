@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import "../css/productImages.css";
 import {NavLink} from "react-router-dom";
-import {orderBox, orderButton, continueShopping} from "../redux";
+import {orderButtonSalat, continueShopping, incCounterSalat, decCounterSalat} from "../redux";
 import {connect} from "react-redux";
 
 
@@ -16,29 +16,48 @@ class SingleSalad extends Component{
         </div>
 
 
-      <div className="py-5 alert alert-secondary d-flex flex-column justify-content-between" role="alert">
+        <div className="py-5 alert alert-secondary d-flex flex-column justify-content-between" role="alert">
 
-            <span  style={{width: "30vw"}} className="mb-3 mx-auto d-flex justify-content-around align-items-center">
-                <button identdec={this.props.saladArray.id} onClick={this.props.decCounter} className="btn btn-secondary mx-1">-</button>
-                <p className="lead text-center my-1 sizeP">{this.props.saladArray.counter}</p>
-                <button identinc={this.props.saladArray.id}  className="btn btn-secondary">+</button>
-                <button  className="btn btn-success float-right">Bestätigen</button>
-            </span>
+              <span  style={{width: ""}} className="mb-3 mx-auto d-flex justify-content-around align-items-center">
 
-            <div className="d-flex flex-column justify-content-between">
-                {this.props.orderIsZero && <div className="alert alert-warning">Die Bestellung muss größer als 0 sein!</div>}
-                {this.props.thxAlert && <div className="bg-light alert justify-content-between d-flex align-items-center">
-                      <p className="p-0 m-0 lead">Danke für deine Bestellung!</p>
-                        <span className="d-flex">
-                            <button onClick={this.props.continueShopping} className="btn btn-secondary mx-3">Weiter einkaufen</button>
-                            <NavLink className="float-right" to="/orders">
-                            <button onClick={this.props.continueShopping}  className="btn btn-primary">zu Kasse</button>
-                            </NavLink>
-                       </span>
-                </div>}
+              <div className="infoBox input-group">
+                     <span className="input-group-btn">
+                        <button ident={this.props.saladArray.id} onClick={this.props.decCounterSalat} className="btn btn-secondary" type="button">-</button>
+                     </span>
+                     <span className="d-flex align-items-center bg-white px-5">{this.props["countersSalat" + this.props.saladArray.id]}</span>
+                     <span className="input-group-btn">
+                        <button ident={this.props.saladArray.id} onClick={this.props.incCounterSalat} className="btn btn-secondary" type="button">+</button>
+                     </span>
+               </div>
 
-           </div>
-        </div>
+                <button
+                    image={this.props.saladArray.img}
+                    salad={this.props.saladArray.titel}
+                    price={this.props.saladArray.price}
+                    titel={this.props.saladArray.titel}
+                    ident={this.props.saladArray.id}
+                    onClick={this.props.setOrderButton}
+                    className="infoBox ml-5 btn btn-success float-right">
+                    Bestätigen
+                  </button>
+
+              </span>
+
+
+              <div className="d-flex flex-column justify-content-between">
+                <div className="divBoxZero alert alert-warning">Die Bestellung muss größer als 1 sein!</div>
+                <div className="dankeBox bg-light alert justify-content-between align-items-center">
+                        <p className="p-0 m-0 lead text-success">Danke für deine Bestellung!</p>
+                          <span className="d-flex">
+                              <button onClick={this.props.continueShopping} className="btn btn-secondary mx-3">Weiter bestellen</button>
+                              <NavLink className="float-right" to="/orders">
+                              <button onClick={this.props.continueShopping}  className="btn btn-primary">zu Kasse</button>
+                              </NavLink>
+                         </span>
+                  </div>
+
+             </div>
+          </div>
 
         <NavLink to="/salads"><button className="btn btn-secondary">zurück zur Auswahl</button></NavLink>
 
@@ -50,21 +69,23 @@ class SingleSalad extends Component{
 
 const mapStateToProps = state => {
   return{
-    counterOrder: state.counterOrder,
-     orderBox: state.orderBox,
-     update: state.counterOrder,
-     counter: state.counter,
-     infoBox: state.infoBox,
-     orderIsZero: state.orderIsZero,
-     pizzaStorage: state.pizzaStorage,
-     thxAlert: state.thxAlert
+    update: state.counterOrder,
+    salatStorage: state.salatStorage,
+    countersSalat0: state.countersSalat[0],
+    countersSalat1: state.countersSalat[1],
+    countersSalat2: state.countersSalat[2],
+    countersSalat3: state.countersSalat[3],
+    countersSalat4: state.countersSalat[4],
+    countersSalat5: state.countersSalat[5],
   }
 }
 
 const mapStateToDispatch = dispatch => {
-   return{enterBox: (index) => dispatch(orderBox(index)),
-          setOrderButton: (index) => dispatch(orderButton(index)),
-          continueShopping: () => dispatch(continueShopping()),
+   return{
+     incCounterSalat: (ev) => dispatch(incCounterSalat(ev)),
+     decCounterSalat: (ev) => dispatch(decCounterSalat(ev)),
+     setOrderButton: (index) => dispatch(orderButtonSalat(index)),
+     continueShopping: () => dispatch(continueShopping()),
    }
 }
 

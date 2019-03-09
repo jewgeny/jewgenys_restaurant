@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import "../css/productImages.css";
+import "../css/orders.css";
 import {NavLink} from "react-router-dom";
-import {orderBox, incCounterPizza, decCounterPizza, decCounter, orderButton, continueShopping, changeValuePizza} from "../redux";
+import {incCounterPizza, decCounterPizza, decCounter, orderButtonPizza, continueShopping, changeValuePizza} from "../redux";
 import {connect} from "react-redux";
 
 
@@ -18,33 +19,43 @@ class SinglePizza extends Component{
 
       <div className="py-5 alert alert-secondary d-flex flex-column justify-content-between" role="alert">
 
-            <span  style={{width: "20vw"}} className="mb-3 mx-auto d-flex justify-content-around align-items-center">
-                <button ident={this.props.pizzaArray.id} onClick={this.props.decCounterPizza} className="btn btn-secondary mx-1">-</button>
-                <p className="lead my-auto py-auto">{this.props["countersPizza" + this.props.pizzaArray.id]}</p>
-                <button ident={this.props.pizzaArray.id} onClick={this.props.incCounterPizza} className="btn btn-secondary">+</button>
-                <button
-                        image={this.props.pizzaArray.img}
-                        pizza={this.props.pizzaArray.titel}
-                        price={this.props.pizzaArray.price}
-                        titel={this.props.pizzaArray.titel}
-                        ident={this.props.pizzaArray.id}
-                        onClick={this.props.setOrderButton}
-                        className="btn btn-success float-right">
-                        Bestätigen
+            <span  style={{width: ""}} className="mb-3 mx-auto d-flex justify-content-around align-items-center">
+
+            <div className="infoBox input-group">
+                   <span className="input-group-btn">
+                      <button ident={this.props.pizzaArray.id} onClick={this.props.decCounterPizza} className="btn btn-secondary" type="button">-</button>
+                   </span>
+                   <span className="d-flex align-items-center bg-white px-5">{this.props["countersPizza" + this.props.pizzaArray.id]}</span>
+                   <span className="input-group-btn">
+                      <button ident={this.props.pizzaArray.id} onClick={this.props.incCounterPizza} className="btn btn-secondary" type="button">+</button>
+                   </span>
+             </div>
+
+              <button
+                  image={this.props.pizzaArray.img}
+                  pizza={this.props.pizzaArray.titel}
+                  price={this.props.pizzaArray.price}
+                  titel={this.props.pizzaArray.titel}
+                  ident={this.props.pizzaArray.id}
+                  onClick={this.props.setOrderButton}
+                  className="infoBox ml-5 btn btn-success float-right">
+                  Bestätigen
                 </button>
+
             </span>
 
+
             <div className="d-flex flex-column justify-content-between">
-                {this.props.orderIsZero && <div className="alert alert-warning">Die Bestellung muss größer als 0 sein!</div>}
-                {this.props.thxAlert && <div className="bg-light alert justify-content-between d-flex align-items-center">
-                      <p className="p-0 m-0 lead">Danke für deine Bestellung!</p>
+              <div className="divBoxZero alert alert-warning">Die Bestellung muss größer als 1 sein!</div>
+              <div className="dankeBox bg-light alert justify-content-between align-items-center">
+                      <p className="p-0 m-0 lead text-success">Danke für deine Bestellung!</p>
                         <span className="d-flex">
-                            <button onClick={this.props.continueShopping} className="btn btn-secondary mx-3">Weiter einkaufen</button>
+                            <button onClick={this.props.continueShopping} className="btn btn-secondary mx-3">Weiter bestellen</button>
                             <NavLink className="float-right" to="/orders">
                             <button onClick={this.props.continueShopping}  className="btn btn-primary">zu Kasse</button>
                             </NavLink>
                        </span>
-                </div>}
+                </div>
 
            </div>
         </div>
@@ -59,13 +70,7 @@ class SinglePizza extends Component{
 
 const mapStateToProps = state => {
   return{
-     orderBox: state.orderBox,
      update: state.counterOrder,
-     counter: state.counter,
-     infoBox: state.infoBox,
-     orderIsZero: state.orderIsZero,
-     pizzaStorage: state.pizzaStorage,
-     thxAlert: state.thxAlert,
      countersPizza0: state.countersPizza[0],
      countersPizza1: state.countersPizza[1],
      countersPizza2: state.countersPizza[2],
@@ -76,12 +81,11 @@ const mapStateToProps = state => {
 }
 
 const mapStateToDispatch = dispatch => {
-   return{enterBox: (index) => dispatch(orderBox(index)),
+   return{
           incCounterPizza: (ev) => dispatch(incCounterPizza(ev)),
           decCounterPizza: (ev) => dispatch(decCounterPizza(ev)),
-          setOrderButton: (index) => dispatch(orderButton(index)),
+          setOrderButton: (index) => dispatch(orderButtonPizza(index)),
           continueShopping: () => dispatch(continueShopping()),
-          changeValuePizza: (ev) => dispatch(changeValuePizza(ev))
    }
 }
 

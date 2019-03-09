@@ -10,7 +10,7 @@ class BasketIcon extends Component{
      return(
        <NavLink to="/orders" className="d-flex justify-content-center align-items-center">
          <FaCartArrowDown className="icons" />
-         {this.props.showBasket && <span className="counterBasket ">{this.props.orderButton}</span>}
+        <span className="counterBasket ">{this.props.orderButton}</span>
        </NavLink>
      )
    }
@@ -18,8 +18,8 @@ class BasketIcon extends Component{
 
 const mapStateToProps = state => {
    return{
-     orderButton: state.counterBasket,
-     showBasket: state.showBasket
+     orderButton: state.counterBasket
+
    }
 }
 

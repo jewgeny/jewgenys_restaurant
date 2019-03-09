@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import "./css/subimages.css";
 import {NavLink} from "react-router-dom";
-import {orderBox, incCounter, decCounter, orderButton} from "./redux";
 import {connect} from "react-redux";
 
 
