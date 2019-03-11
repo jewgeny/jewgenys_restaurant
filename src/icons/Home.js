@@ -11,7 +11,7 @@ class HomeIcon extends Component{
       <>
        <NavLink to="/">
            <FaHome className="icons" />
-            </NavLink>
+        </NavLink>
 
       </>
      )

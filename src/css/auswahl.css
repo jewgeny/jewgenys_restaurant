@@ -2,3 +2,11 @@
   width: 50% ;
   height: auto;
 }
+
+@media only screen and (max-width: 600px){
+   .mobilAuswahl{
+     display: flex;
+     flex-direction: column;
+     margin-top: 25vw !important;
+   }
+}

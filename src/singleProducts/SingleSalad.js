@@ -8,10 +8,10 @@ import {connect} from "react-redux";
 class SingleSalad extends Component{
   render(){
      return(
-      <div className="card">
+      <div className="mt-5 card">
          <h1 className="display-4 text-center my-4">{this.props.saladArray.titel}</h1>
-         <div className="d-flex">
-           <img src={this.props.saladArray.img} className="card-img-bottom productImg" />
+         <div className="d-flex mobileSingleproduct">
+           <img src={this.props.saladArray.img} className="card-img-top productImg" />
            <p className="px-3">{this.props.saladArray.description}</p>
         </div>
 

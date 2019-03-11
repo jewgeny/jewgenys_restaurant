@@ -100,16 +100,22 @@ const reducer = (state = initialState, action) => {
             const image = action.ev.target.getAttribute("image");
             const titel = action.ev.target.getAttribute("titel");
             var identButton = action.ev.target.getAttribute("ident");
-
-            var divElement = document.querySelectorAll(".divBoxZero");
-            var divElementDanke = document.querySelectorAll(".dankeBox");
-
-            const objects = {pizza: pizza,
+            const objectsPizza = {pizza: pizza,
                              price: price,
                              image: image,
                              titel: titel,
                              quantity: state.countersPizza[identButton]};
 
+            var divElement = document.querySelectorAll(".divBoxZero");
+            var divElementDanke = document.querySelectorAll(".dankeBox");
+
+
+            /*const itemFoundPizza = copyOfStates.basket.find(item => item.pizza === pizza); // If found will return the object
+            if(itemFoundPizza){
+              itemFoundPizza.quantity += copyOfStates.countersPizza[identButton];
+            }
+            */
+            
             if(state.countersPizza[identButton] < 1){
                 for(let i = 0; i < divElement.length; i++){
                     if(divElement[i]){
@@ -118,24 +124,20 @@ const reducer = (state = initialState, action) => {
                 }
             }
             else{
+              copyOfStates.basket = [...state.basket, objectsPizza];
               state.countersPizza[identButton] = 0;
               copyOfStates.counterBasket = state.counterBasket +1;
-
-              copyOfStates.basket = [...state.basket, objects];
 
               for(let a = 0; a < divElementDanke.length; a++){
                 if(divElementDanke[a]){
                     divElementDanke[a].classList.add("showBoxDanke");
                   }
                  }
+
             }
 
-            if(state.basket.length > 0){
-              state.showBasket = true;
-            }else{
-              state.showBasket = false;
-            }
             return copyOfStates;
+
 
             case "ORDERBUTTONBURGER":
               const burger = action.ev.target.getAttribute("burger");
@@ -152,6 +154,10 @@ const reducer = (state = initialState, action) => {
                                image: imageBurger,
                                titel: titelBurger,
                                quantity: state.countersBurger[identButton]};
+
+              const itemFoundBurger = copyOfStates.basket.find(item => item.burger === burger);
+
+
 
               if(state.countersBurger[identButton] < 1){
                   for(let i = 0; i < divElement.length; i++){
@@ -352,10 +358,4 @@ export const continueShopping = () => {
 }
 
 
-
-
-
-export const store = createStore(
-  reducer, /* preloadedState, */
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
- );
+export const store = createStore(reducer);

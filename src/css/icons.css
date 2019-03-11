@@ -1,4 +1,11 @@
 .icons{
-  font-size: 3vw;
-  color: white;
+  font-size: 40px;
+  color: darkgrey;
+
+}
+
+@media only screen and (max-width: 600px){
+    .icons{
+      margin: 2vw 0;
+    }
 }

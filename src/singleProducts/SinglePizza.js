@@ -9,9 +9,9 @@ import {connect} from "react-redux";
 class SinglePizza extends Component{
   render(){
      return(
-      <div className="card">
+      <div className="mt-5 card">
          <h1 className="display-4 text-center my-4">{this.props.pizzaArray.titel}</h1>
-         <div className="d-flex">
+         <div className="d-flex mobileSingleproduct">
            <img src={this.props.pizzaArray.img} className="card-img-bottom productImg" />
            <p className="px-3">{this.props.pizzaArray.description}</p>
         </div>

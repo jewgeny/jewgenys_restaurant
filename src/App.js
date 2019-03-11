@@ -6,7 +6,7 @@ import {saladArray} from "./data/salads";
 import {burgerArray} from "./data/burgers";
 import {pizzaArray} from "./data/pizzas";
 import Auswahl from "./Auswahl";
-import NavList from "./navList";
+import Menu from "./menu";
 import {PizzasContainer} from "./Pizzas";
 import {BurgersContainer} from "./Burgers";
 import {SaladsContainer} from "./Salads";
@@ -22,17 +22,15 @@ class App extends Component {
     return (
       <BrowserRouter>
       <>
+          <Menu />
+          <Route exact path="/" render={() => <Auswahl />} />
 
-      <div className="container">
-        <h1 style={{width: "40vw", margin: "0 auto"}}  className="bg-light text-center my-3">JEWGENY'S RESTAURANT</h1>
-
-       <NavList />
-         <div className="my-3 jumbotron d-flex justify-content-around">
-           <Route exact path="/" render={() => <Auswahl />} />
+          <div className="container">
+            <Route exact path="/orders" render={() => <OrdersContainer />} />
              <Route exact path="/pizzas" render={() => <PizzasContainer />} />
              <Route exact path="/burgers" render={() => <BurgersContainer />} />
              <Route exact path="/salads" render={() => <SaladsContainer />} />
-             <Route path="/orders" render={() => <OrdersContainer />} />
+
 
              <Route path="/salads/singlesalad/:id" render={({match}) => {
                  const selectedIndex = match.params.id;
@@ -50,7 +48,7 @@ class App extends Component {
              }} />
 
 
-           </div>
+
         </div>
       </>
       </BrowserRouter>

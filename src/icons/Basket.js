@@ -8,7 +8,7 @@ import {connect} from "react-redux";
 class BasketIcon extends Component{
    render(){
      return(
-       <NavLink to="/orders" className="d-flex justify-content-center align-items-center">
+       <NavLink to="/orders" className="">
          <FaCartArrowDown className="icons" />
         <span className="counterBasket ">{this.props.orderButton}</span>
        </NavLink>

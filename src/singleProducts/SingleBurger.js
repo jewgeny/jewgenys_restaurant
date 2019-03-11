@@ -8,9 +8,9 @@ import {connect} from "react-redux";
 class SingleBurger extends Component{
   render(){
      return(
-      <div className="card">
+      <div className="mt-5 card">
          <h1 className="display-4 text-center my-4">{this.props.burgerArray.titel}</h1>
-         <div className="d-flex">
+         <div className="d-flex mobileSingleproduct">
            <img src={this.props.burgerArray.img} className="card-img-bottom productImg" />
            <p className="px-3">{this.props.burgerArray.description}</p>
         </div>

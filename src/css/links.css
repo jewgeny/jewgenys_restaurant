@@ -3,11 +3,22 @@
 
 }
 
-.hoverLink:hover{
-  border: 1px solid white;
+.links{
+  border: 1px solid grey;
+  color: white !important;
+}
+
+.links:hover{
+  border: 1px solid green;
   transition: all 1s;
 }
 
 .textDecoration{
   text-decoration: none !important;
+}
+
+@media only screen and (max-width: 600px){
+  .links{
+    margin: 1vw 0;
+  }
 }

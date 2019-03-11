@@ -18,3 +18,23 @@
 .showBoxDanke{
   display: flex;
 }
+
+.top{
+  margin-top: 10vw;
+}
+
+@media only screen and (max-width: 600px){
+  .mobileOrderImg{
+    font-size: 5vw !important;
+    font-weight: 500 !important;
+  }
+
+  .mobileOrderTitel{
+    font-size: 6vw !important;
+    margin-top: 5vw !important;
+  }
+
+  .mobileOrderSum{
+    font-size: 5vw !important;
+  }
+}

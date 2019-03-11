@@ -1,4 +1,17 @@
 .productImg{
   width: 50% !important;
-  height: 90% !important;
+  height: 50% !important;
+}
+
+@media only screen and (max-width: 600px){
+  .mobileSingleproduct{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .productImg{
+    width: 80% !important;
+    margin: 0 auto;
+    margin-bottom: 5vw;
+  }
 }
